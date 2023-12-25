@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# print a string 10 times using until loop
+
+a=0
+
+until false; do
+  echo "Best School"
+  ((a++))
+  if [[ $a -lt 10 ]]; then
+    continue
+  else
+    break
+  fi
+done
