@@ -1,0 +1,29 @@
+As we navigate the internet daily, we often take for granted the complexity behind the seemingly simple action of typing a URL into our browser and pressing Enter. In this article, we'll delve into the intricate journey of a web request, focusing on what happens when we type "https://www.google.com" into our browser's address bar.
+
+DNS Request:
+The journey begins with a DNS (Domain Name System) request. When we type "https://www.google.com", our browser needs to translate this human-readable domain name into an IP address, which is necessary for communication over the internet. It sends a DNS query to a DNS server, which then responds with the corresponding IP address for "www.google.com".
+
+TCP/IP:
+With the IP address in hand, our browser initiates a TCP (Transmission Control Protocol) connection to the server hosting Google's website using the obtained IP address. TCP ensures reliable and ordered delivery of data packets over the internet.
+
+Firewall:
+Before reaching the destination server, the request may pass through various firewalls. Firewalls act as barriers, inspecting incoming and outgoing traffic based on predefined security rules. They help protect against unauthorized access and malicious activities.
+
+HTTPS/SSL:
+Since we typed "https://" before the URL, our browser expects a secure connection using HTTPS (Hypertext Transfer Protocol Secure). This involves establishing a secure TLS (Transport Layer Security) connection between the client (our browser) and the server. SSL certificates ensure that the data exchanged between the client and server remains encrypted and secure from eavesdropping or tampering.
+
+Load-Balancer:
+Large-scale websites like Google often utilize load balancers to distribute incoming traffic across multiple servers. Load balancers improve performance, scalability, and reliability by evenly distributing the workload among backend servers.
+
+Web Server:
+After passing through the load balancer, the request reaches one of Google's web servers. The web server processes the request, retrieves the requested resources (such as HTML, CSS, JavaScript files), and generates an appropriate response to send back to the client.
+
+Application Server:
+In some cases, the web server may need to interact with an application server to fulfill the request. Application servers handle dynamic content generation, database queries, user authentication, and other server-side operations.
+
+Database:
+For certain requests, especially those involving data retrieval or manipulation, the application server may communicate with a database server. The database server stores and manages the website's data, serving as a backend storage solution for dynamic content.
+
+Finally, with all the necessary resources retrieved and processed, the web server sends back the response to the client (our browser), which then renders the webpage based on the received HTML, CSS, and JavaScript.
+
+In conclusion, the journey of a web request involves numerous steps, from DNS resolution to content rendering in our browser. Understanding these processes helps us appreciate the underlying infrastructure and complexities involved in delivering seamless web experiences.
