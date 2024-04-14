@@ -5,12 +5,14 @@ import requests
 
 def number_of_subscribers(subreddit):
     """Return the total number of subscribers on a given subreddit."""
-    url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
-    headers = {
-        "User-Agent": "linux:0x16.api.advanced:v1.0.0 (by /u/ahmed_)"
-    }
-    response = requests.get(url, headers=headers, allow_redirects=False)
-    if response.status_code == 404:
+    url = f"https://www.reddit.com/r/{subreddit}/about.json"
+    headers = {"User-Agent": "MyRedditApp/1.0.0 (by /u/MyUsername)"}
+
+    try:
+        response = requests.get(url, headers=headers, allow_redirects=False)
+        response.raise_for_status()  # Raise an error for non-200 status codes
+        data = response.json().get("data", {})
+        return data.get("subscribers", 0)
+    except requests.exceptions.RequestException as e:
+        print("Error:", e)
         return 0
-    results = response.json().get("data")
-    return results.get("subscribers")
